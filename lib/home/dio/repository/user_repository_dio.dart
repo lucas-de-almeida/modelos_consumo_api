@@ -11,7 +11,7 @@ class UserRepositoryDio implements IUserRepository {
     try {
       final response = await _dio
           .get<List>('https://5f7cba02834b5c0016b058aa.mockapi.io/api/users');
-      response.data.map((e) => UserModel.fromMap(e)).toList();
+      return response.data.map((e) => UserModel.fromMap(e)).toList();
     } on DioError catch (e) {
       print(e);
       rethrow;
